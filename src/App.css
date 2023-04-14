@@ -36,3 +36,181 @@
     transform: rotate(360deg);
   }
 }
+
+.nav {
+  display: inline-grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  grid-column-gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.nav-item {
+  white-space: nowrap;
+  background-color: #fff;
+  text-align: center;
+  border: 0px solid red;
+  font-weight: bold;
+}
+
+.nav-item a {
+  color: #333;
+  text-decoration: none;
+}
+
+.hero {
+  background-color: #495e57;
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+}
+
+.hero-box {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  border: 0px solid rgb(26, 240, 11);
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  font-size: 0.9rem;
+  color: white;
+  font-family: Karla, sans-serif;
+}
+
+.hero h1 {
+  margin-bottom: -1.5rem;
+  white-space: nowrap;
+  color: #f4ce12;
+  font-family: Markazi Text, serif;
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+.hero h2 {
+  font-size: 1.6rem;
+  color: rgb(215, 215, 215);
+  font-family: Markazi Text, serif;
+  font-weight: normal;
+}
+
+.hero img {
+  width: 23rem;
+  border-radius: 10px;
+}
+
+.hero-box button {
+  color: #333;
+  font-weight: bold;
+  background-color: #f4ce12;
+  margin-left: 0rem;
+  margin-top: 1rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 1px solid rgb(255, 217, 0);
+  border-radius: 10px;
+  white-space: nowrap;
+  font-family: Karla, sans-serif;
+  font-size: 1rem;
+}
+
+.hero-box button:hover {
+  background-color: rgb(170, 255, 109);
+}
+
+.specials-title {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 4fr 2fr;
+  border: 0px solid rgb(233, 166, 10);
+}
+
+.specials-title h2 {
+  margin-top: 0rem;
+  white-space: nowrap;
+  color: #333;
+  font-family: Markazi Text, serif;
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+.specials-title button {
+  width: 12rem;
+  height: 3rem;
+  color: #333;
+  font-weight: bold;
+  background-color: #f4ce12;
+  margin-left: auto;
+  margin-top: 0rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 0px solid rgb(255, 217, 0);
+  border-radius: 10px;
+  white-space: nowrap;
+  font-family: Karla, sans-serif;
+  font-size: 1rem;
+  float: right;
+}
+
+.special-card {
+  background-color: rgb(206, 206, 206);
+  border-radius: 16px 16px 0px 0px;
+}
+
+.special-card-delivery {
+  margin: 1rem;
+  padding-bottom: 1rem;
+  font-family: Karla, sans-serif;
+  font-weight: bold;
+}
+
+.special-card-info {
+  position: relative;
+  margin: 1rem;
+}
+
+.special-card-info-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgb(215, 127, 3);
+  font-weight: bold;
+}
+
+.specials-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 2.8fr 4fr 4fr 4fr 2.8fr;
+  grid-column-gap: 2rem;
+  border: 0px solid rgb(233, 166, 10);
+}
+
+.specials-list img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.redborder {
+  border: 2px solid rgb(255, 149, 0);
+}
+
+footer {
+  margin-top: 0rem;
+  padding: 0.5rem;
+  background-color: #495e57;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 4fr 4fr 2fr;
+  color: #f4ce12;
+}
+
+footer .copyright {
+  text-align: end;
+}
+
+.booking-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.booking-form {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  gap: 20px;
+}
