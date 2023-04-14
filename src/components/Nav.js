@@ -26,6 +26,7 @@ function Nav(props) {
         alt="logo"
         className="nav-item"
         onClick={goHome}
+        aria-label="Home Page"
       />
       {links.map((link) => {
         return (

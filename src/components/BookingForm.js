@@ -7,6 +7,8 @@ function BookingForm(props) {
   const [guests, setGuests] = useState(0);
   const [occasion, setOccasion] = useState("");
 
+  const [errorDate, setErrorDate] = useState("");
+
   const availableTimes = props.availableTimes;
   //console.log("BookingForm availableTimes:", availableTimes);
 
@@ -15,6 +17,7 @@ function BookingForm(props) {
   const handleDateChange = (e) => {
     const newDate = e.target.value;
     setDate(newDate);
+    setErrorDate("");
     dispatch({ type: "DATE_CHANGE", payload: newDate });
   };
 
@@ -35,6 +38,32 @@ function BookingForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    let errorFound = false; // use this boolean because the state vars are not updated while this function is executing.
+
+    // Date
+    let todayDate = new Date();
+    todayDate.setHours(0, 0, 0, 0);
+    let bookDate = new Date(date);
+    bookDate.setHours(0, 0, 0, 0);
+    bookDate.setDate(bookDate.getDate() + 1);
+
+    if (bookDate.getTime() < todayDate.getTime()) {
+      errorFound = true;
+      setErrorDate("The date can't be in the past");
+    }
+
+    // Time
+
+    /*
+    console.log(
+      `errorDate.length: ${
+        errorDate.length
+      } errorDate: ${errorDate} today: ${todayDate.getTime()}, date: ${bookDate.getTime()} or ${date}`
+      // `errorDate.length: ${errorDate.length} errorDate: ${errorDate} today: ${todayDate}, date: ${bookDate} or ${date}`
+    );
+*/
+    if (errorFound) return;
+
     console.log(
       `Reservation made for ${date} at ${time}. n guests: ${guests}; occasion: ${occasion}`
     );
@@ -45,16 +74,26 @@ function BookingForm(props) {
   return (
     <form className="booking-form redborder" onSubmit={handleSubmit}>
       <h2>Book Now!</h2>
+
       <label htmlFor="res-date">Choose date</label>
-      <input type="date" id="res-date" onChange={handleDateChange} />
+      <input
+        className={errorDate.length > 0 ? "date-error" : "date-correct"}
+        type="date"
+        id="res-date"
+        onChange={handleDateChange}
+        required
+      />
+      <div className="error-text">{errorDate}</div>
+
       <label htmlFor="res-time">Choose time</label>
-      <select id="res-time " onChange={handleTimeChange}>
+      <select id="res-time " onChange={handleTimeChange} required>
         {availableTimes.map((time) => (
           <option key={time} value={time}>
             {time}
           </option>
         ))}
       </select>
+
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
@@ -63,15 +102,16 @@ function BookingForm(props) {
         max="10"
         id="guests"
         onChange={handleGuestsChange}
+        required
       />
 
       <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" onChange={handleOccasionChange}>
+      <select id="occasion" onChange={handleOccasionChange} required>
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <input type="submit" value="Make Your reservation" aria-label="submit" />
     </form>
   );
 }
