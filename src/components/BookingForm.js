@@ -72,47 +72,68 @@ function BookingForm(props) {
   };
 
   return (
-    <form className="booking-form redborder" onSubmit={handleSubmit}>
-      <h2>Book Now!</h2>
+    <>
+      <div>
+        <h2>Book Now!</h2>
+        <form className="booking-form" onSubmit={handleSubmit}>
+          <label htmlFor="res-date">Choose date</label>
 
-      <label htmlFor="res-date">Choose date</label>
-      <input
-        className={errorDate.length > 0 ? "date-error" : "date-correct"}
-        type="date"
-        id="res-date"
-        onChange={handleDateChange}
-        required
-      />
-      <div className="error-text">{errorDate}</div>
+          <div>
+            <input
+              className={
+                errorDate.length > 0
+                  ? "date-input date-error"
+                  : "date-input date-correct"
+              }
+              type="date"
+              id="res-date"
+              onChange={handleDateChange}
+              required
+            />
+            <div className="error-text">{errorDate}</div>
+          </div>
 
-      <label htmlFor="res-time">Choose time</label>
-      <select id="res-time " onChange={handleTimeChange} required>
-        {availableTimes.map((time) => (
-          <option key={time} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
+          <label htmlFor="res-time">Choose time</label>
+          <select
+            id="res-time "
+            onChange={handleTimeChange}
+            required
+            className="time-input"
+          >
+            {availableTimes.map((time) => (
+              <option key={time} value={time}>
+                {time}
+              </option>
+            ))}
+          </select>
 
-      <label htmlFor="guests">Number of guests</label>
-      <input
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-        onChange={handleGuestsChange}
-        required
-      />
+          <label htmlFor="guests">Number of guests</label>
+          <input
+            className="n-of-guests-input"
+            type="number"
+            placeholder="1"
+            min="1"
+            max="10"
+            id="guests"
+            onChange={handleGuestsChange}
+            required
+          />
 
-      <label htmlFor="occasion">Occasion</label>
-      <select id="occasion" onChange={handleOccasionChange} required>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-      </select>
+          <label htmlFor="occasion">Occasion</label>
+          <select id="occasion" onChange={handleOccasionChange} required>
+            <option>Birthday</option>
+            <option>Anniversary</option>
+          </select>
 
-      <input type="submit" value="Make Your reservation" aria-label="submit" />
-    </form>
+          <div></div>
+          <input
+            type="submit"
+            value="Make Your reservation"
+            aria-label="submit"
+          />
+        </form>
+      </div>
+    </>
   );
 }
 

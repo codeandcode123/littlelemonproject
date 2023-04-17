@@ -210,7 +210,38 @@ footer .copyright {
 }
 
 .booking-form {
+  background-color: #ffefa2;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #cdaa00;
+  border-radius: 8px;
+
   display: grid;
-  grid-template-rows: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.date-input {
+  width: 8rem;
+}
+
+.time-input {
+  width: rem;
+}
+
+.n-of-guests-input {
+  width: 2rem;
+}
+
+.date-correct {
+}
+
+.date-error {
+  border-color: red;
+}
+
+.error-text {
+  font-size: 0.75rem;
+  color: red;
 }
